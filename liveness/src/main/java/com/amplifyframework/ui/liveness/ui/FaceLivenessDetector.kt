@@ -256,17 +256,19 @@ internal fun ChallengeView(
         val videoViewportSize = livenessState.videoViewportSize
 
         if (videoViewportSize != null) {
-            Box(
-                modifier = Modifier
-                    .size(videoViewportSize.viewportDpSize)
-                    .align(Alignment.Center)
-            ) {
-                AndroidView(
-                    { livenessCoordinator.previewTextureView },
-                    Modifier
+            if (livenessState.livenessCheckState !is LivenessCheckState.Success) {
+                Box(
+                    modifier = Modifier
                         .size(videoViewportSize.viewportDpSize)
                         .align(Alignment.Center)
-                )
+                ) {
+                    AndroidView(
+                        { livenessCoordinator.previewTextureView },
+                        Modifier
+                            .size(videoViewportSize.viewportDpSize)
+                            .align(Alignment.Center)
+                    )
+                }
             }
 
             if (livenessState.showingStartView) {
@@ -362,14 +364,6 @@ internal fun ChallengeView(
                             livenessCoordinator.processLivenessCheckComplete()
                         }
                     }
-                }
-
-                livenessState.faceGuideRect?.let {
-                    RecordingIndicator(
-                        modifier = Modifier
-                            .align(Alignment.TopStart)
-                            .padding(16.dp)
-                    )
                 }
 
                 // The close button is gone, so the system back gesture is the only way out.
