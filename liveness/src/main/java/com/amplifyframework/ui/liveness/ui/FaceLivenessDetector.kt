@@ -16,6 +16,7 @@
 package com.amplifyframework.ui.liveness.ui
 
 import android.graphics.RectF
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -371,11 +372,10 @@ internal fun ChallengeView(
                     )
                 }
 
-                CancelChallengeButton(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(16.dp)
-                ) {
+                // The close button is gone, so the system back gesture is the only way out.
+                // It cancels through the coordinator rather than just finishing the Activity:
+                // that closes the socket with CANCELED and reports an outcome to the host.
+                BackHandler {
                     livenessCoordinator.processSessionError(
                         FaceLivenessDetectionException.UserCancelledException(),
                         true

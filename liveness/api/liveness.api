@@ -158,13 +158,6 @@ public final class com/amplifyframework/ui/liveness/ui/ChallengeOptions {
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/amplifyframework/ui/liveness/ui/ComposableSingletons$CancelChallengeButtonKt {
-	public static final field INSTANCE Lcom/amplifyframework/ui/liveness/ui/ComposableSingletons$CancelChallengeButtonKt;
-	public fun <init> ()V
-	public final fun getLambda$-1739561416$liveness_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-1862551778$liveness_release ()Lkotlin/jvm/functions/Function2;
-}
-
 public final class com/amplifyframework/ui/liveness/ui/ComposableSingletons$FaceLivenessDetectorKt {
 	public static final field INSTANCE Lcom/amplifyframework/ui/liveness/ui/ComposableSingletons$FaceLivenessDetectorKt;
 	public fun <init> ()V

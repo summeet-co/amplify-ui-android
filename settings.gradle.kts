@@ -20,5 +20,6 @@ include(":liveness")
 include(":authenticator")
 include(":testing")
 
-// Enable typesafe accessor generation for cross-project references
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+// Typesafe-акцессоры включались бы на всю сборку и при подключении форка в TWA
+// ломали бы генерацию акцессора для android-browser-helper (дефисы в имени).
+// Вместо них обычный project(":testing") в двух модулях.

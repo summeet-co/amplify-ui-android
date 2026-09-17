@@ -48,6 +48,7 @@ dependencies {
 
     implementation(libs.bundles.camera)
     implementation(libs.bundles.compose)
+    implementation(libs.androidx.activity.compose)
 
     implementation(libs.androidx.futures)
     implementation(libs.androidx.lifecycle)
@@ -61,5 +62,5 @@ dependencies {
     // Needed to workaround warning for missing annotations from a transitive dependency of media3
     implementation(libs.errorpone)
 
-    testImplementation(projects.testing)
+    testImplementation(project(":testing"))
 }
