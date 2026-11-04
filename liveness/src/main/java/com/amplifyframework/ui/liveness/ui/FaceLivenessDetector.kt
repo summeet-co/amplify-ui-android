@@ -264,17 +264,19 @@ internal fun ChallengeView(
         val videoViewportSize = livenessState.videoViewportSize
 
         if (videoViewportSize != null) {
-            Box(
-                modifier = Modifier
-                    .size(videoViewportSize.viewportDpSize)
-                    .align(Alignment.Center)
-            ) {
-                AndroidView(
-                    { livenessCoordinator.previewTextureView },
-                    Modifier
+            if (livenessState.livenessCheckState !is LivenessCheckState.Success) {
+                Box(
+                    modifier = Modifier
                         .size(videoViewportSize.viewportDpSize)
                         .align(Alignment.Center)
-                )
+                ) {
+                    AndroidView(
+                        { livenessCoordinator.previewTextureView },
+                        Modifier
+                            .size(videoViewportSize.viewportDpSize)
+                            .align(Alignment.Center)
+                    )
+                }
             }
 
             if (livenessState.showingStartView) {
@@ -373,7 +375,7 @@ internal fun ChallengeView(
                 }
 
                 ChallengeOverlayControls(
-                    showRecordingIndicator = livenessState.faceGuideRect != null,
+                    showRecordingIndicator = false,
                     cancelButton = cancelButton
                 ) {
                     livenessCoordinator.processSessionError(

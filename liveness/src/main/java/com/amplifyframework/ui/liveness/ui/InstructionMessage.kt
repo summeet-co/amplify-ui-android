@@ -122,7 +122,7 @@ private fun FaceOvalInstructionMessage(
         Text(
             message,
             color = textColor,
-            style = MaterialTheme.typography.headlineLarge,
+            style = MaterialTheme.typography.bodyMedium,
             textAlign = TextAlign.Center
         )
     }
