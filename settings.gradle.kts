@@ -21,4 +21,3 @@ include(":authenticator")
 include(":testing")
 
 // Enable typesafe accessor generation for cross-project references
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

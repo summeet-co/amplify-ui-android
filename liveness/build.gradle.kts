@@ -61,5 +61,5 @@ dependencies {
     // Needed to workaround warning for missing annotations from a transitive dependency of media3
     implementation(libs.errorpone)
 
-    testImplementation(projects.testing)
+    testImplementation(project(":testing"))
 }

@@ -20,5 +20,5 @@ dependencies {
     implementation(libs.androidx.compose.viewmodel)
     implementation(libs.zxing)
 
-    testImplementation(projects.testing)
+    testImplementation(project(":testing"))
 }
